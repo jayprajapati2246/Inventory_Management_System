@@ -261,7 +261,7 @@ class _RegistrationPageState extends State<RegistrationPage> {
                       );
                     },
                     child: Text(
-                      "Login Now",
+                      "Login ",
                       style: TextStyle(
                         color: Colors.blueAccent,
                         fontWeight: FontWeight.bold,

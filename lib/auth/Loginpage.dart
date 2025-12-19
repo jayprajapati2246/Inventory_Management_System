@@ -1,7 +1,7 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
-import 'Dashbord.dart';
+import '../Dashbord.dart';
 import 'Registration_page.dart';
 
 class Loginpage extends StatefulWidget {
@@ -162,7 +162,7 @@ class _LoginpageState extends State<Loginpage> {
                       );
                     },
                     child: Text(
-                      "Register Now",
+                      "Register",
                       style: TextStyle(
                         color: Colors.blueAccent,
                         fontWeight: FontWeight.bold,
