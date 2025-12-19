@@ -2,6 +2,8 @@ import 'package:curved_navigation_bar/curved_navigation_bar.dart';
 import 'package:flutter/material.dart';
 import 'package:inventory_pro/auth/Loginpage.dart';
 
+import 'Allproduct.dart';
+
 class Dashbord extends StatefulWidget {
   const Dashbord({super.key});
 
@@ -12,19 +14,14 @@ class Dashbord extends StatefulWidget {
 class _DashbordState extends State<Dashbord> {
   @override
   Widget build(BuildContext context) {
-
     final item = <Widget>[
-       Icon(Icons.inventory),
-       Icon(Icons.warning),
-      Icon(Icons.shopping_cart),
+      Icon(Icons.home),
+      Icon(Icons.card_travel),
+      Icon(Icons.point_of_sale),
       Icon(Icons.bar_chart),
     ];
 
     int index = 2;
-
-    final size = MediaQuery.of(context).size;
-    final weight = MediaQuery.of(context).size;
-    final height = MediaQuery.of(context).size;
 
     return Scaffold(
       backgroundColor: const Color(0xFFF5F5F5),
@@ -118,7 +115,12 @@ class _DashbordState extends State<Dashbord> {
                     mainAxisAlignment: MainAxisAlignment.center,
                     children: [
                       IconButton(
-                        onPressed: () {},
+                        onPressed: () {
+                          // Navigator.push(
+                          //   context,
+                          //   MaterialPageRoute(builder: (Contax) => Loginpage()),
+                          // );
+                        },
                         icon: Icon(Icons.add, size: 36, color: Colors.white),
                       ),
                       Text(
@@ -186,21 +188,23 @@ class _DashbordState extends State<Dashbord> {
                   ),
                   child: Column(
                     mainAxisAlignment: MainAxisAlignment.center,
-                    children: [IconButton(
-                      onPressed: () {},
-                      icon: Icon(
-                        Icons.remove_circle_outline_outlined,
-                        size: 36,
-                        color: Colors.white,
+                    children: [
+                      IconButton(
+                        onPressed: () {},
+                        icon: Icon(
+                          Icons.remove_circle_outline_outlined,
+                          size: 36,
+                          color: Colors.white,
+                        ),
                       ),
-                    ),
                       Text(
                         "Remove Product",
                         style: TextStyle(
                           fontWeight: FontWeight.bold,
                           color: Colors.white,
                         ),
-                      ),],
+                      ),
+                    ],
                   ),
                 ),
               ],
@@ -208,7 +212,7 @@ class _DashbordState extends State<Dashbord> {
 
             const SizedBox(height: 25),
 
-            /// ===== RECENT PRODUCTS =====
+            //show recent products
             Container(
               child: Row(
                 children: [
@@ -245,8 +249,20 @@ class _DashbordState extends State<Dashbord> {
                       backgroundColor: Colors.white,
                       child: Icon(Icons.inventory, color: Colors.black),
                     ),
-                    title: Text("Product ${index + 1}",style: TextStyle(color: Colors.white,fontWeight: FontWeight.bold),),
-                    subtitle: const Text("Stock: 25 units",style: TextStyle(color: Colors.white,fontWeight: FontWeight.bold)),
+                    title: Text(
+                      "Product ${index + 1}",
+                      style: TextStyle(
+                        color: Colors.white,
+                        fontWeight: FontWeight.bold,
+                      ),
+                    ),
+                    subtitle: const Text(
+                      "Stock: 25 units",
+                      style: TextStyle(
+                        color: Colors.white,
+                        fontWeight: FontWeight.bold,
+                      ),
+                    ),
                     trailing: const Icon(Icons.arrow_forward_ios, size: 16),
                   ),
                 );
@@ -256,7 +272,7 @@ class _DashbordState extends State<Dashbord> {
         ),
       ),
 
-      /// ===== BOTTOM NAV =====
+      //bottembar
       bottomNavigationBar: CurvedNavigationBar(
         index: index,
         height: 50,
@@ -276,14 +292,14 @@ class _DashbordState extends State<Dashbord> {
             case 0:
               Navigator.push(
                 context,
-                MaterialPageRoute(builder: (_) => Loginpage()),
+                MaterialPageRoute(builder: (_) => Dashbord()),
               );
               break;
 
             case 1:
               Navigator.push(
                 context,
-                MaterialPageRoute(builder: (_) => Loginpage()),
+                MaterialPageRoute(builder: (_) => Allproduct()),
               );
               break;
 
@@ -297,17 +313,16 @@ class _DashbordState extends State<Dashbord> {
             case 3:
               Navigator.push(
                 context,
-                MaterialPageRoute(builder: (_) =>Loginpage()),
+                MaterialPageRoute(builder: (_) => Loginpage()),
               );
               break;
           }
         },
       ),
-
     );
   }
 
-  /// ===== TILE WIDGET =====
+  //  status show function
   Widget dashboardTile(
     IconData icon,
     String title,
