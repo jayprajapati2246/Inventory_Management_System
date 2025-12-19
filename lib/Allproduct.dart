@@ -12,7 +12,6 @@ class Allproduct extends StatefulWidget {
 }
 
 class _AllproductState extends State<Allproduct> {
-
   final item = <Widget>[
     Icon(Icons.home),
     Icon(Icons.card_travel),
@@ -21,6 +20,8 @@ class _AllproductState extends State<Allproduct> {
   ];
 
   int index = 2;
+
+  var search = TextEditingController();
 
   @override
   Widget build(BuildContext context) {
@@ -41,45 +42,43 @@ class _AllproductState extends State<Allproduct> {
 
       body: Column(
         children: [
-          // 🔍 Search Bar
+          //Search Bar
           Container(
             margin: const EdgeInsets.all(10),
             padding: const EdgeInsets.symmetric(horizontal: 15),
-            height: 45,
             decoration: BoxDecoration(
-              color: Colors.white,
+              color: Colors.black26,
               borderRadius: BorderRadius.circular(25),
-              border: Border.all(color: Colors.grey),
             ),
-            child: const Row(
-              children: [
-                Icon(Icons.search),
-                SizedBox(width: 10),
-                Expanded(
-                  child: Text(
-                    "Search Products...",
-                    style: TextStyle(color: Colors.grey),
-                  ),
-                ),
-                Icon(Icons.filter_alt),
-              ],
-            ),
-          ),
-
-          // 📦 Total Products
-          Row(
-            children: [
-              Container(
-                color: Colors.black26,
-                child: Text(
-                  "Total Products: 40",
-                  style: TextStyle(fontSize: 16, fontWeight: FontWeight.bold),
+            child: TextField(
+              controller: search,
+              style: const TextStyle(
+                color: Colors.black,
+                fontSize: 16,
+              ),
+              decoration: InputDecoration(
+                hintText: "Search products...",
+                hintStyle: const TextStyle(color: Colors.black),
+                border: InputBorder.none,
+                prefixIcon: const Icon(Icons.search, color: Colors.black),
+                suffixIcon: IconButton(
+                  icon: const Icon(Icons.filter_alt_outlined, color: Colors.black),
+                  onPressed: () {},
                 ),
               ),
-            ],
+            ),
           ),
 
-          // 📋 Product List
+              Container(
+                alignment: Alignment.center,
+                color: Colors.black87,
+                child: Text(
+                  "Total Products: 40",
+                  style: TextStyle(fontSize: 16, fontWeight: FontWeight.bold,color: Colors.white),
+                ),
+              ),
+
+          //Product List
           Expanded(
             child: ListView.builder(
               itemCount: 40,
@@ -129,8 +128,8 @@ class _AllproductState extends State<Allproduct> {
                                 ),
                               ),
                               subtitle: Text(
-                                  "Stock:- 10",
-                                  style: TextStyle(fontSize: 15)
+                                "Stock:- 10",
+                                style: TextStyle(fontSize: 15),
                               ),
                             ),
 
@@ -172,8 +171,15 @@ class _AllproductState extends State<Allproduct> {
                                   ),
                                 ),
                                 onPressed: () {},
-                                icon: const Icon(Icons.edit, size: 16,color: Colors.black,),
-                                label: const Text("Edit",style: TextStyle(color: Colors.black),),
+                                icon: const Icon(
+                                  Icons.edit,
+                                  size: 16,
+                                  color: Colors.black,
+                                ),
+                                label: const Text(
+                                  "Edit",
+                                  style: TextStyle(color: Colors.black),
+                                ),
                               ),
                               const SizedBox(width: 5),
                               ElevatedButton.icon(
@@ -185,8 +191,15 @@ class _AllproductState extends State<Allproduct> {
                                   ),
                                 ),
                                 onPressed: () {},
-                                icon: const Icon(Icons.delete, size: 16,color: Colors.black),
-                                label: const Text("Delete",style: TextStyle(color: Colors.black)),
+                                icon: const Icon(
+                                  Icons.delete,
+                                  size: 16,
+                                  color: Colors.black,
+                                ),
+                                label: const Text(
+                                  "Delete",
+                                  style: TextStyle(color: Colors.black),
+                                ),
                               ),
                             ],
                           ),
