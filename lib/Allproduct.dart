@@ -129,8 +129,8 @@ class _AllproductState extends State<Allproduct> {
                                 ),
                               ),
                               subtitle: Text(
-                                "Stock:- 10",
-                                style: TextStyle(fontSize: 15)
+                                  "Stock:- 10",
+                                  style: TextStyle(fontSize: 15)
                               ),
                             ),
 
@@ -200,52 +200,52 @@ class _AllproductState extends State<Allproduct> {
           ),
         ],
       ),
-        bottomNavigationBar: CurvedNavigationBar(
-          index: index,
-          height: 50,
-          items: item,
-          color: Colors.blueAccent,
-          buttonBackgroundColor: Colors.black26,
-          backgroundColor: Colors.transparent,
-          animationCurve: Curves.easeInOut,
-          animationDuration: const Duration(milliseconds: 600),
+      bottomNavigationBar: CurvedNavigationBar(
+        index: index,
+        height: 50,
+        items: item,
+        color: Colors.blueAccent,
+        buttonBackgroundColor: Colors.black26,
+        backgroundColor: Colors.transparent,
+        animationCurve: Curves.easeInOut,
+        animationDuration: const Duration(milliseconds: 600),
 
-          onTap: (selectedIndex) {
-            setState(() {
-              index = selectedIndex;
-            });
+        onTap: (selectedIndex) {
+          setState(() {
+            index = selectedIndex;
+          });
 
-            switch (selectedIndex) {
-              case 0:
-                Navigator.push(
-                  context,
-                  MaterialPageRoute(builder: (_) => Dashbord()),
-                );
-                break;
+          switch (selectedIndex) {
+            case 0:
+              Navigator.push(
+                context,
+                MaterialPageRoute(builder: (_) => Dashbord()),
+              );
+              break;
 
-              case 1:
-                Navigator.push(
-                  context,
-                  MaterialPageRoute(builder: (_) => Allproduct()),
-                );
-                break;
+            case 1:
+              Navigator.push(
+                context,
+                MaterialPageRoute(builder: (_) => Allproduct()),
+              );
+              break;
 
-              case 2:
-                Navigator.push(
-                  context,
-                  MaterialPageRoute(builder: (_) => Loginpage()),
-                );
-                break;
+            case 2:
+              Navigator.push(
+                context,
+                MaterialPageRoute(builder: (_) => Loginpage()),
+              );
+              break;
 
-              case 3:
-                Navigator.push(
-                  context,
-                  MaterialPageRoute(builder: (_) => Loginpage()),
-                );
-                break;
-            }
-          },
-        ),
+            case 3:
+              Navigator.push(
+                context,
+                MaterialPageRoute(builder: (_) => Loginpage()),
+              );
+              break;
+          }
+        },
+      ),
     );
   }
 }

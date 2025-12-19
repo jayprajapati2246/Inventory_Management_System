@@ -34,7 +34,7 @@ class _invetoryState extends State<invetory> {
     super.initState();
     Timer(
       Duration(seconds: 5),
-      () => Navigator.pushReplacement(
+          () => Navigator.pushReplacement(
         context,
         MaterialPageRoute(builder: (context) => Loginpage()),
       ),

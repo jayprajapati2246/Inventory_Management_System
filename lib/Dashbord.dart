@@ -324,11 +324,11 @@ class _DashbordState extends State<Dashbord> {
 
   //  status show function
   Widget dashboardTile(
-    IconData icon,
-    String title,
-    Color color, {
-    String? value,
-  }) {
+      IconData icon,
+      String title,
+      Color color, {
+        String? value,
+      }) {
     return Container(
       decoration: BoxDecoration(
         color: color,
