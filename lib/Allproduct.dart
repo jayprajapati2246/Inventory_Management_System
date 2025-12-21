@@ -1,8 +1,4 @@
-import 'package:curved_navigation_bar/curved_navigation_bar.dart';
 import 'package:flutter/material.dart';
-
-import 'Dashbord.dart';
-import 'auth/Loginpage.dart';
 
 class Allproduct extends StatefulWidget {
   const Allproduct({super.key});
@@ -12,15 +8,6 @@ class Allproduct extends StatefulWidget {
 }
 
 class _AllproductState extends State<Allproduct> {
-  final item = <Widget>[
-    Icon(Icons.home),
-    Icon(Icons.card_travel),
-    Icon(Icons.point_of_sale),
-    Icon(Icons.bar_chart),
-  ];
-
-  int index = 2;
-
   var search = TextEditingController();
 
   @override
@@ -29,15 +16,29 @@ class _AllproductState extends State<Allproduct> {
       backgroundColor: const Color(0xFFF5F5F5),
       appBar: AppBar(
         backgroundColor: const Color(0xFF1976D2),
-        title: const Text(
-          "All Products",
-          style: TextStyle(
-            color: Colors.white,
-            fontWeight: FontWeight.bold,
-            fontSize: 22,
-          ),
+        elevation: 0,
+        title: const Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: [
+            Text(
+              'All Product',
+              style: TextStyle(
+                fontSize: 27,
+                fontWeight: FontWeight.bold,
+                color: Colors.white,
+              ),
+            ),
+          ],
         ),
-        centerTitle: true,
+        actions: const [
+          Padding(
+            padding: EdgeInsets.only(right: 12),
+            child: CircleAvatar(
+              radius: 22,
+              backgroundImage: AssetImage("assates/image/images.png"),
+            ),
+          ),
+        ],
       ),
 
       body: Column(
@@ -52,41 +53,45 @@ class _AllproductState extends State<Allproduct> {
             ),
             child: TextField(
               controller: search,
-              style: const TextStyle(
-                color: Colors.black,
-                fontSize: 16,
-              ),
+              style: const TextStyle(color: Colors.black, fontSize: 16),
               decoration: InputDecoration(
                 hintText: "Search products...",
                 hintStyle: const TextStyle(color: Colors.black),
                 border: InputBorder.none,
                 prefixIcon: const Icon(Icons.search, color: Colors.black),
                 suffixIcon: IconButton(
-                  icon: const Icon(Icons.filter_alt_outlined, color: Colors.black),
+                  icon: const Icon(
+                    Icons.filter_alt_outlined,
+                    color: Colors.black,
+                  ),
                   onPressed: () {},
                 ),
               ),
             ),
           ),
 
-              Container(
-                alignment: Alignment.center,
-                color: Colors.black87,
-                child: Text(
-                  "Total Products: 40",
-                  style: TextStyle(fontSize: 16, fontWeight: FontWeight.bold,color: Colors.white),
-                ),
+          Container(
+            alignment: Alignment.center,
+            color: Colors.black87,
+            child: const Text(
+              "Total Products: 40",
+              style: TextStyle(
+                fontSize: 16,
+                fontWeight: FontWeight.bold,
+                color: Colors.white,
               ),
+            ),
+          ),
 
           //Product List
           Expanded(
             child: ListView.builder(
               itemCount: 40,
-              padding: EdgeInsets.all(10),
+              padding: const EdgeInsets.all(10),
               itemBuilder: (context, index) {
                 return Container(
-                  margin: EdgeInsets.only(bottom: 10),
-                  padding: EdgeInsets.all(10),
+                  margin: const EdgeInsets.only(bottom: 10),
+                  padding: const EdgeInsets.all(10),
                   decoration: BoxDecoration(
                     color: Colors.black26,
                     borderRadius: BorderRadius.circular(20),
@@ -94,7 +99,7 @@ class _AllproductState extends State<Allproduct> {
                       BoxShadow(
                         color: Colors.grey.shade300,
                         blurRadius: 5,
-                        offset: Offset(0, 3),
+                        offset: const Offset(0, 3),
                       ),
                     ],
                   ),
@@ -212,52 +217,6 @@ class _AllproductState extends State<Allproduct> {
             ),
           ),
         ],
-      ),
-      bottomNavigationBar: CurvedNavigationBar(
-        index: index,
-        height: 50,
-        items: item,
-        color: Colors.blueAccent,
-        buttonBackgroundColor: Colors.black26,
-        backgroundColor: Colors.transparent,
-        animationCurve: Curves.easeInOut,
-        animationDuration: const Duration(milliseconds: 600),
-
-        onTap: (selectedIndex) {
-          setState(() {
-            index = selectedIndex;
-          });
-
-          switch (selectedIndex) {
-            case 0:
-              Navigator.push(
-                context,
-                MaterialPageRoute(builder: (_) => Dashbord()),
-              );
-              break;
-
-            case 1:
-              Navigator.push(
-                context,
-                MaterialPageRoute(builder: (_) => Allproduct()),
-              );
-              break;
-
-            case 2:
-              Navigator.push(
-                context,
-                MaterialPageRoute(builder: (_) => Loginpage()),
-              );
-              break;
-
-            case 3:
-              Navigator.push(
-                context,
-                MaterialPageRoute(builder: (_) => Loginpage()),
-              );
-              break;
-          }
-        },
       ),
     );
   }

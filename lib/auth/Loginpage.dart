@@ -1,7 +1,7 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
-import '../Dashbord.dart';
+import '../Main_Screen.dart';
 import 'Registration_page.dart';
 
 class Loginpage extends StatefulWidget {
@@ -14,9 +14,7 @@ class Loginpage extends StatefulWidget {
 class _LoginpageState extends State<Loginpage> {
   @override
   Widget build(BuildContext context) {
-    final size = MediaQuery
-        .of(context)
-        .size;
+    final size = MediaQuery.of(context).size;
     final height = size.height;
     final width = size.width;
 
@@ -26,7 +24,7 @@ class _LoginpageState extends State<Loginpage> {
     return Scaffold(
       backgroundColor: Colors.blueGrey[900],
       body: Padding(
-        padding: EdgeInsets.all(10),
+        padding: const EdgeInsets.all(10),
         child: SingleChildScrollView(
           child: Column(
             mainAxisAlignment: MainAxisAlignment.start,
@@ -34,7 +32,7 @@ class _LoginpageState extends State<Loginpage> {
               Container(
                 alignment: Alignment.topLeft,
                 margin: EdgeInsets.only(top: height * 0.12, left: width * 0.02),
-                child: Text(
+                child: const Text(
                   "Login",
                   style: TextStyle(
                     color: Colors.white,
@@ -63,8 +61,8 @@ class _LoginpageState extends State<Loginpage> {
                 controller: email,
                 style: const TextStyle(color: Colors.white),
                 decoration: InputDecoration(
-                  label: Text("Email ID or Username"),
-                  labelStyle: TextStyle(color: Colors.white),
+                  label: const Text("Email ID or Username"),
+                  labelStyle: const TextStyle(color: Colors.white),
                   enabledBorder: OutlineInputBorder(
                     borderRadius: BorderRadius.circular(12),
                     borderSide: const BorderSide(
@@ -79,7 +77,7 @@ class _LoginpageState extends State<Loginpage> {
                     ),
                     borderRadius: BorderRadius.circular(12),
                   ),
-                  prefixIcon: Icon(Icons.email, color: Colors.white),
+                  prefixIcon: const Icon(Icons.email, color: Colors.white),
                 ),
               ),
 
@@ -90,8 +88,8 @@ class _LoginpageState extends State<Loginpage> {
                 style: const TextStyle(color: Colors.white),
                 obscureText: true,
                 decoration: InputDecoration(
-                  label: Text("Password"),
-                  labelStyle: TextStyle(color: Colors.white),
+                  label: const Text("Password"),
+                  labelStyle: const TextStyle(color: Colors.white),
                   enabledBorder: OutlineInputBorder(
                     borderRadius: BorderRadius.circular(12),
                     borderSide: const BorderSide(
@@ -106,7 +104,7 @@ class _LoginpageState extends State<Loginpage> {
                       width: 3.5,
                     ),
                   ),
-                  prefixIcon: Icon(Icons.lock, color: Colors.white),
+                  prefixIcon: const Icon(Icons.lock, color: Colors.white),
                 ),
               ),
 
@@ -121,8 +119,8 @@ class _LoginpageState extends State<Loginpage> {
                 ),
                 onPressed: () {
                   Navigator.pushReplacement(
-                      context,
-                      MaterialPageRoute(builder: (context) =>Dashbord())
+                    context,
+                    MaterialPageRoute(builder: (context) => const MainScreen()),
                   );
                 },
                 child: Container(
@@ -145,7 +143,7 @@ class _LoginpageState extends State<Loginpage> {
               Row(
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
-                  Text(
+                  const Text(
                     "Don't Have Account ?",
                     style: TextStyle(
                       color: Colors.white,
@@ -158,10 +156,11 @@ class _LoginpageState extends State<Loginpage> {
                       Navigator.push(
                         context,
                         MaterialPageRoute(
-                            builder: (context) => RegistrationPage()),
+                          builder: (context) => const RegistrationPage(),
+                        ),
                       );
                     },
-                    child: Text(
+                    child: const Text(
                       "Register",
                       style: TextStyle(
                         color: Colors.blueAccent,
