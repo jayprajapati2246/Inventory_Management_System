@@ -14,16 +14,18 @@ class _AllproductState extends State<Allproduct> {
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: const Color(0xFFF5F5F5),
+
       appBar: AppBar(
         backgroundColor: const Color(0xFF1976D2),
         elevation: 0,
         title: const Column(
           crossAxisAlignment: CrossAxisAlignment.start,
+          mainAxisSize: MainAxisSize.min,
           children: [
             Text(
               'All Product',
               style: TextStyle(
-                fontSize: 27,
+                fontSize: 30,
                 fontWeight: FontWeight.bold,
                 color: Colors.white,
               ),
@@ -46,11 +48,13 @@ class _AllproductState extends State<Allproduct> {
           //Search Bar
           Container(
             margin: const EdgeInsets.all(10),
+
             padding: const EdgeInsets.symmetric(horizontal: 15),
             decoration: BoxDecoration(
               color: Colors.black26,
               borderRadius: BorderRadius.circular(25),
             ),
+
             child: TextField(
               controller: search,
               style: const TextStyle(color: Colors.black, fontSize: 16),
@@ -58,7 +62,7 @@ class _AllproductState extends State<Allproduct> {
                 hintText: "Search products...",
                 hintStyle: const TextStyle(color: Colors.black),
                 border: InputBorder.none,
-                prefixIcon: const Icon(Icons.search, color: Colors.black),
+                prefixIcon: const Icon(Icons.search, color: Colors.black,fontWeight: FontWeight.bold,),
                 suffixIcon: IconButton(
                   icon: const Icon(
                     Icons.filter_alt_outlined,
@@ -71,14 +75,14 @@ class _AllproductState extends State<Allproduct> {
           ),
 
           Container(
-            alignment: Alignment.center,
-            color: Colors.black87,
+            margin: EdgeInsets.only(left: 7),
+             alignment: Alignment.centerLeft,
             child: const Text(
               "Total Products: 40",
               style: TextStyle(
                 fontSize: 16,
                 fontWeight: FontWeight.bold,
-                color: Colors.white,
+                color: Colors.black,
               ),
             ),
           ),
@@ -86,8 +90,8 @@ class _AllproductState extends State<Allproduct> {
           //Product List
           Expanded(
             child: ListView.builder(
-              itemCount: 40,
-              padding: const EdgeInsets.all(10),
+              itemCount: 10,
+               padding: const EdgeInsets.only(left: 5,right: 5),
               itemBuilder: (context, index) {
                 return Container(
                   margin: const EdgeInsets.only(bottom: 10),
@@ -108,8 +112,8 @@ class _AllproductState extends State<Allproduct> {
                     children: [
                       // 🖼 Product Image
                       Container(
-                        height: 80,
-                        width: 80,
+                        height: 40,
+                        width: 40,
                         decoration: BoxDecoration(
                           borderRadius: BorderRadius.circular(100),
                           color: Colors.black26,
@@ -117,13 +121,14 @@ class _AllproductState extends State<Allproduct> {
                         child: const Icon(Icons.laptop, size: 35),
                       ),
 
-                      const SizedBox(width: 10),
+                      const SizedBox(width: 7),
 
                       // 📄 Product Details
                       Expanded(
                         child: Column(
                           crossAxisAlignment: CrossAxisAlignment.start,
-                          children: const [
+                          mainAxisAlignment: MainAxisAlignment.start,
+                          children:  [
                             ListTile(
                               title: Text(
                                 "Laptop",
@@ -138,15 +143,18 @@ class _AllproductState extends State<Allproduct> {
                               ),
                             ),
 
-                            SizedBox(height: 10),
-                            Text(
-                              "Low Stock",
-                              style: TextStyle(
-                                fontSize: 16,
-                                color: Colors.red,
-                                fontWeight: FontWeight.bold,
+                            Container(
+                              decoration: BoxDecoration(color: Colors.lightGreenAccent),
+                              child: Text(
+                                "Low Stock",
+                                style: TextStyle(
+                                  fontSize: 16,
+                                  color: Colors.red,
+                                  fontWeight: FontWeight.bold,
+                                ),
                               ),
                             ),
+
                           ],
                         ),
                       ),

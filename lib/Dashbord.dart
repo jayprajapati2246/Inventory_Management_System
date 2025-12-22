@@ -1,5 +1,3 @@
-import 'dart:math';
-
 import 'package:flutter/material.dart';
 
 class Dashbord extends StatefulWidget {
@@ -11,19 +9,14 @@ class Dashbord extends StatefulWidget {
 
 class _DashbordState extends State<Dashbord> {
 
-  late MediaQueryData mq = MediaQuery.of(context);
-  late double screenWidth = mq.size.width;
-  late double screenHeight = mq.size.height;
-  late double size = min(screenWidth, screenHeight);
-
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: const Color(0xFFF5F5F5),
+
       appBar: AppBar(
         backgroundColor: const Color(0xFF1976D2),
         elevation: 0,
-        toolbarHeight: screenHeight * 0.09,
         title: const Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           mainAxisSize: MainAxisSize.min,
@@ -46,7 +39,7 @@ class _DashbordState extends State<Dashbord> {
           Padding(
             padding: EdgeInsets.only(right: 12),
             child: CircleAvatar(
-              radius: 27,
+              radius: 22,
               backgroundImage: AssetImage("assates/image/images.png"),
             ),
           ),
@@ -61,10 +54,11 @@ class _DashbordState extends State<Dashbord> {
           children: [
 
             const Text(
-              "Current Stock Status",
+              "Current Status",
               style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
             ),
 
+            // for 4 container status
             GridView.count(
               shrinkWrap: true,
               physics: const NeverScrollableScrollPhysics(),
@@ -102,12 +96,12 @@ class _DashbordState extends State<Dashbord> {
 
             const SizedBox(height: 5),
 
-
             const Text(
               "Quick Actions",
               style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
             ),
 
+            // for 4 container edit and manage
             GridView.count(
               shrinkWrap: true,
               physics: const NeverScrollableScrollPhysics(),
@@ -242,6 +236,7 @@ class _DashbordState extends State<Dashbord> {
               ),
             ),
 
+            //show recent transaction list
             ListView.builder(
               shrinkWrap: true,
               physics: const NeverScrollableScrollPhysics(),
@@ -252,24 +247,24 @@ class _DashbordState extends State<Dashbord> {
                   shape: RoundedRectangleBorder(
                     borderRadius: BorderRadius.circular(50),
                   ),
-                  color: Colors.black26,
+                  color: Colors.white54,
                   child: ListTile(
                     leading: const CircleAvatar(
-                      backgroundColor: Colors.white,
-                      child: Icon(Icons.inventory, color: Colors.black),
+                      backgroundColor: Colors.black,
+                      child: Icon(Icons.inventory, color: Colors.white),
                     ),
                     title: Text(
                       "Product ${index + 1}",
                       style: TextStyle(
                         fontSize: 20,
-                        color: Colors.white,
+                        color: Colors.black,
                         fontWeight: FontWeight.bold,
                       ),
                     ),
                     subtitle: const Text(
                       "Stock: 25 units",
                       style: TextStyle(
-                        color: Colors.white,
+                        color: Colors.black,
                         fontWeight: FontWeight.bold,
                       ),
                     ),
